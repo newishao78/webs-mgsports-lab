@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满冠体育 · 运动场景的价值连接</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #2d3436;
+            line-height: 1.6;
+            padding: 24px 20px 60px;
+        }
+
+        .page {
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 14px 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eaeef2;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #1a2634;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3d4a5b;
+            font-weight: 450;
+            font-size: 0.95rem;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #6c8ea0;
+        }
+
+        .nav-links a.highlight {
+            color: #1f2c3c;
+            font-weight: 550;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 48px 40px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e6ecf0;
+            margin-bottom: 44px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 240px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            color: #1e2a36;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: #3b4a5a;
+            margin-bottom: 22px;
+            max-width: 580px;
+        }
+
+        .hero-text .tagline {
+            background: #eef2f5;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2a3b4b;
+            border: 1px solid #dce3e9;
+            font-weight: 450;
+        }
+
+        .hero-illus {
+            flex: 1;
+            min-width: 140px;
+            background: #eef3f7;
+            border-radius: 28px;
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid #dde5ec;
+            font-size: 2.6rem;
+            line-height: 1.3;
+            color: #4c6679;
+            letter-spacing: 2px;
+            word-break: keep-all;
+        }
+
+        /* 三个场景模块（卡片组）*/
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #1e2a36;
+            margin-bottom: 28px;
+            padding-left: 4px;
+            border-left: 4px solid #9bb5c7;
+            padding-left: 16px;
+        }
+
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-bottom: 52px;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 32px 24px 28px;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .scene-card .emoji-big {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .scene-card h3 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            margin-bottom: 12px;
+            color: #1f2c3c;
+        }
+
+        .scene-card p {
+            color: #445566;
+            font-size: 0.95rem;
+        }
+
+        /* 常见说明 (类似 FAQ 摘要) */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 40px 36px;
+            border: 1px solid #e3e9ef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            margin-bottom: 48px;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 28px;
+            color: #1e2a36;
+        }
+
+        .faq-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #edf2f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 550;
+            color: #1f2c3c;
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+
+        .faq-item .a {
+            color: #4e6072;
+            font-size: 0.95rem;
+        }
+
+        /* 嵌入链接句子 */
+        .inline-link-sentence {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 24px 32px;
+            border: 1px solid #e6ecf0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+            color: #2d3f4f;
+            text-align: center;
+        }
+
+        .inline-link-sentence a {
+            color: #2b5f7a;
+            text-decoration: none;
+            font-weight: 550;
+            border-bottom: 2px solid #cbdae5;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link-sentence a:hover {
+            border-bottom-color: #2b5f7a;
+        }
+
+        /* footer 简单 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #859aa8;
+            border-top: 1px solid #dde4ea;
+            padding-top: 28px;
+            margin-top: 8px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+            .nav {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 16px 20px;
+                border-radius: 30px;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 16px;
+            }
+            .hero {
+                padding: 32px 22px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .hero-illus {
+                width: 100%;
+                padding: 20px;
+            }
+            .faq-summary {
+                padding: 28px 20px;
+            }
+            .scene-card {
+                padding: 24px 18px;
+            }
+            .inline-link-sentence {
+                padding: 18px 16px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <div class="nav-logo">⛳ 满冠</div>
+        <div class="nav-links">
+            <a href="#about">关于</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+            <a href="https://webs-mgsports.com" class="highlight">满冠体育</a>
+        </div>
+    </nav>
+
+    <!-- hero 核心介绍 -->
+    <div class="hero" id="about">
+        <div class="hero-text">
+            <span class="tagline">运动 · 日常 · 连接</span>
+            <h1>让体育场景回归舒适与真实</h1>
+            <p>
+                运动不只有竞技的紧张，更可以是朋友间的轻松回合、午后的一场拉伸、或是社区里挥拍的默契。
+                <strong>满冠体育</strong>关注这些细微而鲜活的时刻，为场馆、团体与个人提供更贴合实际的服务思路。
+            </p>
+            <p style="margin-bottom: 0; font-size: 0.95rem; color: #4a5f71;">
+                从预约管理到活动组织，从数据记录到社群互动，我们相信好的工具应该隐入背景，让运动本身成为主角。
+            </p>
+        </div>
+        <div class="hero-illus">
+            ⚽<br>🏀<br>🎾<br>🏸
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title" id="scenes">三个常见的运动场景</h2>
+    <div class="scene-grid">
+        <div class="scene-card">
+            <span class="emoji-big">🤝</span>
+            <h3>朋友间的轻松对抗</h3>
+            <p>
+                不需要正式的比赛流程，几个人临时约一场羽毛球或篮球，扫码就能记录轮换、计分和时长。
+                满冠体育为这类自发组织提供了低门槛的交互方式。
+            </p>
+        </div>
+        <div class="scene-card">
+            <span class="emoji-big">🧘</span>
+            <h3>个人训练与恢复</h3>
+            <p>
+                无论是瑜伽、普拉提还是简单的拉伸，独自练习时也需要合理的节奏提醒与动作参考。
+                平台整合了轻量的课程模板和计时工具，让训练更专注。
+            </p>
+        </div>
+        <div class="scene-card">
+            <span class="emoji-big">🏟️</span>
+            <h3>社区场馆的日常运营</h3>
+            <p>
+                小型球馆、社区健身中心往往缺少灵活的管理系统。满冠体育提供场地预定、会员签到、活动发布等基础功能，
+                帮助运营者把精力放回场地和服务本身。
+            </p>
+        </div>
+    </div>
+
+    <!-- 嵌入链接的自然句子 -->
+    <div class="inline-link-sentence">
+        <span>如果你正在寻找一种更温和、更实用的方式来打理运动日常，不妨了解一下</span>
+        <a href="https://webs-mgsports.com">满冠体育</a>
+        <span>所提供的基础服务与思路。</span>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-summary" id="faq">
+        <h2>一些你可能想了解的</h2>
+        <div class="faq-item">
+            <div class="q">满冠体育主要面向哪些用户？</div>
+            <div class="a">主要是运动爱好者、小型场馆运营者、以及自发组织的运动团体。平台注重轻量和实用性，不强调竞技或商业推广。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">是否需要下载专门的应用程序？</div>
+            <div class="a">目前大部分功能通过网页即可使用，不需要额外安装。部分进阶服务可能会在后续提供更便捷的移动端方式。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">数据记录会保留多久？</div>
+            <div class="a">基础活动记录默认保留较长时间，具体保留策略会根据账户类型有所不同。你可以随时查看或导出自己的运动数据。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">如何开始使用？</div>
+            <div class="a">访问网站后，可以根据引导创建团体或场馆档案，然后邀请成员加入。整个流程大约几分钟即可完成。</div>
+        </div>
+    </div>
+
+    <!-- footer 简单 -->
+    <div class="footer-note">
+        <span>基于真实场景 · 满冠体育 · 让运动回归日常</span>
+    </div>
+</div>
+</body>
+</html>
