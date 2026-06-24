@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · sports-china-igame.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f2f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .page-container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Hero 开场区 – 故事叙述式短句 */
+        .hero-brief {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e4e9ef;
+            transition: box-shadow 0.2s ease;
+        }
+        .hero-brief:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+        .hero-tagline {
+            font-size: 1.9rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .hero-tagline span {
+            background: linear-gradient(120deg, #fcb045, #fd1d1d 60%, #833ab4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+        }
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #3b4a5e;
+            border-left: 3px solid #9aaec2;
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+
+        /* 承接口袋 – 段落卡片 */
+        .bridge-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e1e7ee;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .bridge-card p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        .bridge-card p:last-child {
+            margin-bottom: 0;
+        }
+        .bridge-card a {
+            color: #1a56db;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .bridge-card a:hover {
+            border-bottom-color: #1a56db;
+        }
+
+        /* 特点列表 – 干净卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .feature-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.6rem;
+            border: 1px solid #e1e7ee;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .feature-item h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+            letter-spacing: 0.02em;
+        }
+        .feature-item p {
+            font-size: 0.98rem;
+            color: #2c3e50;
+            opacity: 0.9;
+        }
+
+        /* 温和结尾区 */
+        .gentle-closing {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2.2rem 2.2rem;
+            border: 1px solid #e4e9ef;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            margin-bottom: 1.8rem;
+        }
+        .gentle-closing p {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+        .gentle-closing .faq-hint {
+            background: #f6f8fc;
+            padding: 1.2rem 1.6rem;
+            border-radius: 16px;
+            border-left: 4px solid #b0c4db;
+            margin-top: 1.2rem;
+            font-size: 0.98rem;
+            color: #1e2a3a;
+        }
+        .gentle-closing .faq-hint strong {
+            font-weight: 600;
+            color: #0b1d31;
+        }
+
+        /* 极简footer */
+        .site-footnote {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #68778d;
+            padding: 1rem 0 0.5rem;
+            border-top: 1px solid #d9e0e9;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero-brief {
+                padding: 2rem 1.5rem 1.8rem;
+            }
+            .hero-tagline {
+                font-size: 1.6rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .bridge-card,
+            .gentle-closing {
+                padding: 1.6rem 1.4rem;
+            }
+            .feature-item {
+                padding: 1.2rem 1.3rem;
+            }
+        }
+        @media (max-width: 420px) {
+            .hero-tagline {
+                font-size: 1.4rem;
+            }
+            .hero-sub {
+                font-size: 0.98rem;
+                padding-left: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+
+    <!-- 开场短句 -->
+    <div class="hero-brief">
+        <div class="hero-tagline">
+            一眼认出 <span>爱游戏</span>，从名字开始。
+        </div>
+        <div class="hero-sub">
+            当你想快速找到体育与游戏交织的专属空间，一个清晰的名字胜过所有导航。
+        </div>
+    </div>
+
+    <!-- 承接段落：从用户快速识别网站用途展开 -->
+    <div class="bridge-card">
+        <p>
+            对许多人来说，每天打开浏览器，面对书签栏里一堆相似的名字，总得犹豫一下：“这个网站是做什么的？” 而 <a href="https://sports-china-igame.com">爱游戏</a> 从一开始就把身份写在脸上：它属于热爱运动与数字娱乐的人。没有拐弯抹角的缩写，没有意义不明的符号——三个字，直接告诉你这里关心什么。
+        </p>
+        <p>
+            你不需要在地址栏里反复猜测。输入 sports-china-igame.com，映入眼帘的内容始终围绕一个核心：让体育迷与游戏爱好者在同一片土壤里找到共鸣。无论是赛事资讯、社区讨论还是休闲互动，整个站点都带着一种克制的热情——它不喧哗，但你知道它一直都在。
+        </p>
+    </div>
+
+    <!-- 特点列表 差异化呈现 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>⛹️ 内容焦点 · 双栖视野</h3>
+            <p>既聊球场上的绝杀瞬间，也聊手柄上的连击操作。两种语言，一个频道。</p>
+        </div>
+        <div class="feature-item">
+            <h3>🧭 结构直白 · 不绕路</h3>
+            <p>导航与分类整洁克制，每一页都尽量让新访客在三秒内理解当前所在位置。</p>
+        </div>
+        <div class="feature-item">
+            <h3>📄 轻量阅读 · 无压浏览</h3>
+            <p>没有铺满屏幕的弹窗或复杂动效，排版留白充足，只想让你好好看完一段内容。</p>
+        </div>
+        <div class="feature-item">
+            <h3>🔗 多端适配 · 随处可读</h3>
+            <p>从手机到平板到大屏，布局自然收缩，段落始终清晰，信息不丢失。</p>
+        </div>
+    </div>
+
+    <!-- 温和结尾 + FAQ摘要提示 -->
+    <div class="gentle-closing">
+        <p>
+            所以下一次当你想要一个不用费心翻译、不用猜测用途的体育游戏站点时，也许可以试试 <a href="https://sports-china-igame.com">爱游戏</a>。它不会用夸张的标语说服你，它只是安静地做好自己那一块内容，等你来发现。
+        </p>
+        <div class="faq-hint">
+            <strong>❓ 常见疑问 · 简短摘要</strong><br>
+            Q：网站主要更新什么？<br>
+            A：主要围绕体育赛事分析、游戏推荐以及两者交叉的趣味内容，更新频率平稳。<br><br>
+            Q：需要注册才能浏览吗？<br>
+            A：大部分内容公开可见，部分社区互动模块可能要求简单注册，具体以页面提示为准。
+        </div>
+    </div>
+
+    <!-- 极简脚注 -->
+    <div class="site-footnote">
+        sports-china-igame.com · 以温和的方式连接体育与游戏
+    </div>
+</div>
+</body>
+</html>
